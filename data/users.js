@@ -1,14 +1,14 @@
 // Placeholder data for users
 const users = [
     {   id: 1, 
-        fname: 'John ',
-        lname: 'Doe', 
-        uname: 'johndoe@hotmail.com',
+        fname: 'James ',
+        lname: 'King', 
+        uname: 'jamesking@hotmail.com',
     },
     {   id: 2, 
-        fname: 'Jane',
+        fname: 'Arnold',
         lname: 'Smith', 
-        uname: 'janesmith@hotmail.com',
+        uname: 'arnoldsmith@hotmail.com',
     },
 ];
 

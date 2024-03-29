@@ -1,13 +1,18 @@
-express = require('express');
+const express = require('express');
 const router = express.Router();
+const { filterExercisesByCategory } = require('../data/exercises');
 
-const exercisesData = require('../data/exercises');
-
-// GET route for retrieving exercises
+// Route to get exercises filtered by category
 router.get('/', (req, res) => {
-    res.json(exercisesData);
+    const { category } = req.query;
+
+    if (!category) {
+        return res.status(400).json({ error: 'Category parameter is required' });
+    }
+
+    const filteredExercises = filterExercisesByCategory(category);
+    res.json(filteredExercises);
 });
 
-// Other routes for exercises as needed
-
 module.exports = router;
+
