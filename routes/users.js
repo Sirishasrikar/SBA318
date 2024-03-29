@@ -76,33 +76,33 @@ router
     
 
 
-.delete((req, res) => {
-    const userId = req.params.id;
-    const userIndex = usersData.findIndex((u) => u.id == userId);
+// .delete((req, res) => {
+//     const userId = req.params.id;
+//     const userIndex = usersData.findIndex((u) => u.id == userId);
 
-    if (userIndex !== -1) {
-        const deletedUser = usersData.splice(userIndex, 1);
-        res.json(deletedUser);
-    } else {
-        res.status(404).json({ error: "User not found" });
-    }
-});
-
-// .delete((req, res, next) => {
-  
-//    console.log(`deleting user with id: ${req.body.id}`);
- 
-//     // the DELETE request route removes the indicated resources
-//     const user = usersData.find((u, i) => {
-//         if (u.id == req.params.id) {
-//             usersData.splice(i, 1);
-//             return true;
-//         }
-//     });
-//     if (usersData) res.json(usersData);
-//     else next();
-
+//     if (userIndex !== -1) {
+//         const deletedUser = usersData.splice(userIndex, 1);
+//         res.json(deletedUser);
+//     } else {
+//         res.status(404).json({ error: "User not found" });
+//     }
 // });
+
+.delete((req, res, next) => {
+  
+   console.log(`deleting user with id: ${req.body.id}`);
+ 
+    // the DELETE request route removes the indicated resources
+    const user = usersData.find((u, i) => {
+        if (u.id == req.params.id) {
+            usersData.splice(i, 1);
+            return true;
+        }
+    });
+    if (usersData) res.json(usersData);
+    else next();
+
+});
 
 
 module.exports = router;
