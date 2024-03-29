@@ -69,6 +69,10 @@ app.post("/users", (req, res) => {
     })
     // app.post('/users', validateRequestBody); // Apply request body validation middleware for POST requests to '/users'
     // app.patch('/users/:id', validateRequestBody); // Apply request body validation middleware for PATCH requests to '/users/:id'
+    app.use((req, res, next) => {
+        next(error(404, "Resource Not Found"));
+      });
+    
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
         res.json({ error: err.message });

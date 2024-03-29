@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const usersData = require('../data/users');
-const users = require('../data/users');
+// const users = require('../data/users');
 
 // GET route for retrieving users
 router.route('/')
@@ -25,9 +25,8 @@ router.route('/')
 
         usersData.push(user);
         res.json(usersData[usersData.length -1]);
-    } else {
-    res.json({error: "Insufficient data"});
-}
+    } else res.json({error: "Insufficient data"});
+
 });
 
 router
