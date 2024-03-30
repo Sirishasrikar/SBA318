@@ -10,25 +10,6 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(express.static('./styles'));
 
 
-// Logger Middleware
-// function loggerMiddleware(req, res, next) {
-//     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-//     next();
-// }
-// app.use(loggerMiddleware);
-
-// // Request Body Validator Middleware
-// function validateRequestBody(req, res, next) {
-//     const requiredFields = ['fname', 'lname', 'uname']; // Define the required fields here
-//     const missingFields = requiredFields.filter(field => !(field in req.body));
-
-//     if (missingFields.length > 0) {
-//         return res.status(400).json({ error: `Missing required fields: ${missingFields.join(', ')}` });
-//     }
-
-//     next();
-// }
-
 app.engine("wellness", (filePath, options, callback) => {
     fs.readFile(filePath, (err, content) => {
       if (err) return callback(err);
