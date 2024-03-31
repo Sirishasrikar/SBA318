@@ -39,6 +39,34 @@ res.render("users", options);
 // res.send("testing")
 });
 
+app.get("/exercise", (req, res) => {
+  const options = {
+      title: "Another example",
+      content: "<h2> This is another way to add content </h2> \
+      <form> \
+      <input type='text'> \
+      <input type='submit'> \
+      </form>",
+  }
+  res.render("exercises", options)
+})
+
+app.get("/meals", (req, res) => {
+  const options = {
+      title: "Another example",
+      content: "<h2> This is another way to add content </h2> \
+      <form> \
+      <input type='text'> \
+      <input type='submit'> \
+      </form>",
+  }
+  res.render("meals", options)
+})
+
+app.get("/search", (req, res) => {
+  res.redirect('https://www.google.com');
+})
+
 app.use('/exercises', exercisesRouter);
 app.use('/meals', mealsRouter);
 app.use('/users', usersRouter);
